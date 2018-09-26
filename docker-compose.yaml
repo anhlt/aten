@@ -1,0 +1,14 @@
+version: '2'
+services:
+    aten:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name : aten
+        image: aten
+        volumes:
+            - ".:/data"
+        shm_size: '10gb'
+        user: anh
+        working_dir: /data
+        tty: true
