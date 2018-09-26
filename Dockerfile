@@ -25,13 +25,13 @@ WORKDIR /tmp
 
 RUN git clone https://github.com/pytorch/pytorch.git
 WORKDIR /tmp/pytorch
-RUN git submodule update --init 
+RUN git submodule update --init
 
 WORKDIR /tmp/data
 
 RUN mkdir build
 WORKDIR /tmp/pytorch/build
-RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/bin # specify your dest directory
+RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local # specify your dest directory
 RUN cmake .. -DUSE_CUDA=OFF  # for CPU only machines
 RUN make install
 
