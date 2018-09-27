@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+  "settings":
+	{
+		"ecc_common_flags": ["-Isrc", "-Ipytorch/aten/src"],
+		"easy_clang_complete_verbose": true
+	}
+}
