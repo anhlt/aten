@@ -14,4 +14,10 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 # The following folder will be included
 include_directories("${PROJECT_SOURCE_DIR}")
 include_directories(/usr/local/include)
-add_executable(hello ${PROJECT_SOURCE_DIR}/src/main.cpp)
+
+file(GLOB helloworld_SRC
+    "src/*.h"
+    "src/*.cpp"
+)
+
+add_executable(helloworld ${helloworld_SRC})

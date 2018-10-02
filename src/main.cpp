@@ -1,20 +1,48 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "ATen/ATen.h"
+#include "coordin.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
 	/* code */
-	int i;
-	std::vector<std::string> vec;
-	vec.push_back("Hello");
-	vec.push_back("Hello2");
-	cout << "abc:";
-	cin >> i;
-	cout << i << endl;
-	cout << vec[0] << std::endl;
+	vector<int> gl;
+
+	for (int i = 0; i <= 5; ++i)
+	{
+		gl.push_back(i);
+	}
+
+	cout << "Size: " << gl.size() << endl;
+	cout << "Capacity : " << gl.capacity() << endl;
+	cout << "Max_size : " << gl.max_size() << endl;
+
+	cout << "Output of begin and end.";
+	for (auto i = gl.begin(); i != gl.end(); ++i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	cout << "Output of begin and end.";
+	for (auto i = gl.cbegin(); i != gl.cend(); ++i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	rect rplace;
+	polar pplace;
+
+	cout << "Enter the x and y values: \n";
+	while(cin >> rplace.x >> rplace.y){
+		pplace = rect_to_polar(rplace);
+		show_polar(pplace);
+		cout << "Next 2 numbers (q to quit): ";
+	}
+
+	cout << "Bye!" << endl;
 	return 0;
 }
