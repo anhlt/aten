@@ -11,6 +11,7 @@
 		"ecc_common_flags":
 		[
 			"-Isrc",
+			"-Isrc/chap9",
 			"-Ipytorch/aten/src"
 		]
 	}

@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "coordin.h"
+#include "chap9/autoscp.h"
 
 using namespace std;
 
@@ -44,5 +45,6 @@ int main(int argc, char const *argv[])
 	}
 
 	cout << "Bye!" << endl;
+	oil(5);
 	return 0;
 }
