@@ -5,6 +5,7 @@
 #include "chap9/autoscp.h"
 
 using namespace std;
+double warming = 0.2;
 
 int main(int argc, char const *argv[])
 {
