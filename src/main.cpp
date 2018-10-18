@@ -3,6 +3,7 @@
 #include <string>
 #include "coordin.h"
 #include "chap9/autoscp.h"
+#include "template/stack.h"
 
 using namespace std;
 double warming = 0.2;
@@ -47,5 +48,10 @@ int main(int argc, char const *argv[])
 
 	cout << "Bye!" << endl;
 	oil(5);
+
+	Stack<int> intStack;
+	intStack.empty();
+	// intStack.top();
+
 	return 0;
 }

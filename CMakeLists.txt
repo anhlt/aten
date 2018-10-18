@@ -12,18 +12,17 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 # The following folder will be included
-include_directories("${CMAKE_SOURCE_DIR}")
+include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/local/include)
-include_directories(${CMAKE_SOURCE_DIR}/chap9)
-add_subdirectory(${CMAKE_SOURCE_DIR}/chap9)
 
 file(GLOB helloworld_SRC
     "src/*.h"
     "src/*.cpp"
 )
 
-
 add_library(chap9 src/chap9/autoscp.cpp)
+add_library(template src/template/stack.cpp)
+
 
 add_executable(helloworld ${helloworld_SRC})
-target_link_libraries (helloworld chap9)
+target_link_libraries (helloworld chap9 template)
