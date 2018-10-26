@@ -22,7 +22,10 @@ file(GLOB helloworld_SRC
 
 add_library(chap9 src/chap9/autoscp.cpp)
 add_library(template src/template/stack.cpp)
+add_library(vect src/template/vect.cpp)
+add_library(stonewt src/template/stonewt.cpp)
+
 
 
 add_executable(helloworld ${helloworld_SRC})
-target_link_libraries (helloworld chap9 template)
+target_link_libraries (helloworld chap9 template vect stonewt)

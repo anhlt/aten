@@ -4,6 +4,7 @@
 #include "coordin.h"
 #include "chap9/autoscp.h"
 #include "template/stack.h"
+#include "template/vect.h"
 
 using namespace std;
 double warming = 0.2;
@@ -11,47 +12,42 @@ double warming = 0.2;
 int main(int argc, char const *argv[])
 {
 	/* code */
-	vector<int> gl;
+	using namespace std;
+	using namespace VECTOR;
+	srand(time(0));
 
-	for (int i = 0; i <= 5; ++i)
-	{
-		gl.push_back(i);
+	double direction;
+	Vector step;
+	Vector result(0.0, 0.0);
+	unsigned long steps = 0;
+	double target;
+	double dstep;
+	cout << "Enter targer distance (q to quit): ";
+	while(cin >> target){
+		cout << "Enter step lenght: ";
+		if(!(cin >> dstep))
+			break;
+
+		while (result.magval() < target)
+		{
+			direction = rand() % 360;
+			step.reset(dstep, direction, Vector::POL);
+			result = result + step;
+			steps ++;
+		}
+
+		cout << "After " << steps << " steps, the subject has the following location";
+		cout << result << endl;
+		result.polar_mode();
+		cout << "or " << result << endl;
+		cout << "Average outward distance per step = " << result.magval() / steps << endl;
+
+		steps = 0;
+		result.reset(0.0, 0.0);
 	}
 
-	cout << "Size: " << gl.size() << endl;
-	cout << "Capacity : " << gl.capacity() << endl;
-	cout << "Max_size : " << gl.max_size() << endl;
-
-	cout << "Output of begin and end.";
-	for (auto i = gl.begin(); i != gl.end(); ++i)
-	{
-		cout << *i << " ";
-	}
-	cout << endl;
-
-	cout << "Output of begin and end.";
-	for (auto i = gl.cbegin(); i != gl.cend(); ++i)
-	{
-		cout << *i << " ";
-	}
-	cout << endl;
-
-	rect rplace;
-	polar pplace;
-
-	cout << "Enter the x and y values: \n";
-	while(cin >> rplace.x >> rplace.y){
-		pplace = rect_to_polar(rplace);
-		show_polar(pplace);
-		cout << "Next 2 numbers (q to quit): ";
-	}
-
-	cout << "Bye!" << endl;
-	oil(5);
-
-	Stack<int> intStack;
-	intStack.empty();
-	// intStack.top();
-
+	cout << "bye \n";
+	while(cin.get() != '\n')
+		continue;
 	return 0;
 }
