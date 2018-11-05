@@ -1,52 +1,40 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "coordin.h"
-#include "chap9/autoscp.h"
-#include "template/stack.h"
-#include "template/vect.h"
+#include "linkedlist/linkedlist.h"
 
 using namespace std;
-double warming = 0.2;
 
 int main(int argc, char const *argv[])
 {
 	/* code */
-	using namespace std;
-	using namespace VECTOR;
-	srand(time(0));
-
-	double direction;
-	Vector step;
-	Vector result(0.0, 0.0);
-	unsigned long steps = 0;
-	double target;
-	double dstep;
-	cout << "Enter targer distance (q to quit): ";
-	while(cin >> target){
-		cout << "Enter step lenght: ";
-		if(!(cin >> dstep))
-			break;
-
-		while (result.magval() < target)
-		{
-			direction = rand() % 360;
-			step.reset(dstep, direction, Vector::POL);
-			result = result + step;
-			steps ++;
-		}
-
-		cout << "After " << steps << " steps, the subject has the following location";
-		cout << result << endl;
-		result.polar_mode();
-		cout << "or " << result << endl;
-		cout << "Average outward distance per step = " << result.magval() / steps << endl;
-
-		steps = 0;
-		result.reset(0.0, 0.0);
+	int i, N = atoi(argv[1]), M = atoi(argv[2]);
+	node * t = new node(1, 0);
+	node * p = new node(1, 0);
+	p->next = p;
+	t->next = t;
+	node * x = t;
+	node * y = p;
+	for(i = 2; i < N; i++){
+		x = (x->next = new node(i, t));
+		cout << "Current x->item: " << x->item << endl;
 	}
+	cout << "Total node in circular linkedlist: " << count(t) << endl;
+	print_linkedlist(t);
 
-	cout << "bye \n";
+	for(i = 2; i < M; i++){
+		y = (y->next = new node(i, p));
+		cout << "Current y->item: " << y->item << endl;
+	}
+	cout << "Total node in circular linkedlist: " << count(p) << endl;
+	print_linkedlist(p);
+
+	join(t, p);
+
+
+	cout << x->item << endl;
+
+
 	while(cin.get() != '\n')
 		continue;
 	return 0;

@@ -8,4 +8,9 @@ struct node
 	node(int, node* t);
 };
 
+int count(node * p);
+void print_linkedlist(node *p);
+void join(node * x, node * t);
+
+
 #endif
